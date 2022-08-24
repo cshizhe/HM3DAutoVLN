@@ -1,0 +1,30 @@
+SEED: 0
+OUTPUT_DIR: ../datasets/REVERIE/expr_speakers/2d_gpt2_prefix4_layer2
+RESUME_FILE: null
+
+MODEL:
+  TYPE: gpt2
+  GPUID: 0
+  OBJIMG_FT_SIZE: 768
+  OBJNAME_FT_SIZE: 300
+  VIEWIMG_FT_SIZE: 768
+  HIDDEN_SIZE: 768
+  ENC_LAYERS: 2
+  DROPOUT: 0.
+  MAX_TXT_LEN: 100
+  USE_VIEW_FT: True
+  USE_CTX_OBJS: True
+  GPT_FREEZE: False
+
+TRAIN:
+  BATCH_SIZE: 64
+  NUM_EPOCH: 100
+  LEARNING_RATE: 0.00002
+  EVAL_EVERY_EPOCH: 10
+  WARMUP_STEPS: 1000
+
+DATA:
+  OBJ_FT_DIR: ../datasets/REVERIE/features/obj_gtmax_timm_imagenet_vitb16
+  VIEW_FT_DIR: ../datasets/R2R/features/view_timm_imagenet_vitb16
+  ANNO_DIR: ../datasets/REVERIE/annotations/speaker_inputs
+  OBJNAME_FT_NORM: False

@@ -1,0 +1,62 @@
+{
+    "model_config": "",
+    "checkpoint": null,
+    "output_dir": "",
+    "mrc_mask_prob": 0.15,
+    "itm_neg_imgs": 5,
+    "nearby_vp_steps": null,
+    "max_objects": 50,
+    "max_txt_len": 100,
+    "train_batch_size": 64,
+    "val_batch_size": 64,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 5e-05,
+    "valid_steps": 5000,
+    "log_steps": 1000,
+    "num_train_steps": 100000,
+    "optim": "adamw",
+    "betas": [
+        0.9,
+        0.98
+    ],
+    "dropout": 0.1,
+    "weight_decay": 0.01,
+    "grad_norm": 5.0,
+    "warmup_steps": 10000,
+    "seed": 0,
+    "fp16": false,
+    "n_workers": 0,
+    "pin_mem": true,
+    "init_pretrained": "lxmert",
+
+    "train_datasets": {
+        "HM3D": {
+            "name": "HM3D",
+            "train_traj_files": ["../datasets/REVERIE/expr_speakers/2d_gpt2_prefix4_layer2/preds/ade20k_pseudo3d_depth2_epoch_94_beam0.jsonl"],
+            "connectivity_dir": "../datasets/HM3D/nav_graphs_v1/connectivity",
+            "img_ft_file": "../datasets/HM3D/nav_graphs_v1/features/view_timm_imagenet_vitb16",
+            "obj_ft_file": "../datasets/HM3D/nav_graphs_v1/features/obj2d_ade20k_pseudo3d_merged_timm_imagenet_vitb16",
+            "scanvp_cands_file": "../datasets/HM3D/nav_graphs_v1/annotations/scanvp_candview_relangles.json",
+            "tasks": [
+                "mlm",
+                "sap",
+                "og"
+            ],
+            "mix_ratio": [
+                1,
+                1,
+                1
+            ],
+            "scan_ranges": null
+        },
+        "REVERIE": {
+            "name": "REVERIE",
+            "val_seen_traj_files": ["../datasets/REVERIE/annotations/pretrain/REVERIE_val_seen_enc.jsonl"],
+            "val_unseen_traj_files": ["../datasets/REVERIE/annotations/pretrain/REVERIE_val_unseen_enc.jsonl"],
+            "connectivity_dir": "../datasets/R2R/connectivity",
+            "img_ft_file": "../datasets/R2R/features/view_timm_imagenet_vitb16",
+            "obj_ft_file": "../datasets/REVERIE/features/obj_gtmax_timm_imagenet_vitb16",
+            "scanvp_cands_file": "../datasets/R2R/annotations/scanvp_candview_relangles.json"
+        }
+    }
+}
