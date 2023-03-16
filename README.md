@@ -1,6 +1,6 @@
 # Learning from Unlabeled 3D Environments for Vision-and-Language Navigation
 
-This repository is the official implementation of [Learning from Unlabeled 3D Environments for Vision-and-Language Navigation](). 
+This repository is the official implementation of [Learning from Unlabeled 3D Environments for Vision-and-Language Navigation](https://arxiv.org/abs/2208.11781). 
 
 Project webpage: [https://cshizhe.github.io/projects/hm3d_autovln.html](https://cshizhe.github.io/projects/hm3d_autovln.html).
 
